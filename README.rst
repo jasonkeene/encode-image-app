@@ -19,16 +19,18 @@ OSX
 ---
 
 1. Double click on EncodeImage.app
-2. Select one or more images to encode and click Open.
-3. The generated HTML file will be placed in the same directory as the
+2. Select Local as a image source.
+3. Select one or more images to encode and click Open.
+4. The generated HTML file will be placed in the same directory as the
    image with the same name as the image.
 
 Other Platforms
 ---------------
 
 1. Run encode_image.py with your favorite python interpreter!
-2. Select one or more images to encode and click Open.
-3. The generated HTML file will be placed in the same directory as the
+2. Select Local as a image source.
+3. Select one or more images to encode and click Open.
+4. The generated HTML file will be placed in the same directory as the
    image with the same name as the image.
 
 Command Line

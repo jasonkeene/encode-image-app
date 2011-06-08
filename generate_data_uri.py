@@ -11,12 +11,13 @@ import mimetypes
 import base64
 import urllib
 
-def generate_base64_data_uri(f):
+def generate_base64_data_uri(f, mime_type=None):
     r'''Generate a base64 encoded data URI from the provided file.'''
-    return 'data:{0};base64,{1}'.format(mimetypes.guess_type(f.name)[0],
-                                        base64.b64encode(f.read()))
+    if not mime_type and f.name:
+        mime_type = mimetypes.guess_type(f.name)[0]
+    return 'data:{0};base64,{1}'.format(mime_type, base64.b64encode(f.read()))
 
-def generate_text_data_uri(f):
+def generate_text_data_uri(f, mime_type=None):
     r'''Generate a URL encoded data URI from the provided text file.'''
     return 'data:text/plain,{0}'.format(urllib.quote(f.read(), safe=''))
 

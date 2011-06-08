@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from __future__ import with_statement
 import os
 import Tkinter
 import tkFileDialog
@@ -107,6 +108,7 @@ def main():
         try:
             f = urllib2.urlopen(urlstring)
             data_uri = generate_data_uri(f, mime_type=f.info().get('Content-Type', None))
+            f.close()
         except (urllib2.URLError, urllib2.HTTPError):
             pass
         if data_uri:

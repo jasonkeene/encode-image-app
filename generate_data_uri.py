@@ -3,7 +3,7 @@
 
 # For data URI standard see: http://www.ietf.org/rfc/rfc2397.txt
 
-from __future__ import print_function
+from __future__ import print_function, with_statement
 import sys
 import os
 import getopt
@@ -64,7 +64,8 @@ def main(argv=None):
     
     for file_name in args:
         if os.path.exists(file_name):
-            print(generate_data_uri(open(file_name)))
+            with open(file_name) as f:
+                print(generate_data_uri(f))
         else:
             print("{0}: Unable to locate file {1}".format(
                     sys.argv[0].split("/")[-1],

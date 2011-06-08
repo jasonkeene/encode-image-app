@@ -35,7 +35,7 @@ Command Line
 ------------
 
 If you'd prefer to just generate a batch of data URIs from a set of files
-(images or not) then use generate_data_uri.py.  It will dump \n delimited
+(images or not) then use generate_data_uri.py.  It will dump ``\n`` delimited
 URIs to stdout.
 
 For instance if you'd like to encode all PNG images on your Desktop and

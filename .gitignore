@@ -1,0 +1,16 @@
+# python
+*.pyc
+*.pyo
+
+# mac
+.DS_Store
+._*
+__MACOSX
+
+# linux
+*.swp
+
+# win
+*~
+Thumbs.db
+desktop.ini

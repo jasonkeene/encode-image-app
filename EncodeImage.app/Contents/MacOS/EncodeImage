@@ -7,6 +7,8 @@ import mimetypes
 import base64
 from itertools import izip_longest
 
+IMAGE_FILE_EXT = ('jpg', 'jpeg', 'png', 'gif')
+
 def generate_data_uri(f):
     r'''Generate a data URI from the provided file.'''
     return 'data:{0};base64,{1}'.format(mimetypes.guess_type(f.name)[0],
@@ -30,13 +32,14 @@ def main():
         if os.path.exists(file_name):
             bits = os.path.basename(file_name).split('.')
             if bits[0] and len(bits) > 1:
-                if bits[-1] in ('jpg', 'jpeg', 'png', 'gif'):
+                if bits[-1] in IMAGE_FILE_EXT:
                     html_file = os.path.join(os.path.dirname(file_name),
                                              '.'.join(bits[:-1] + ['html']))
                     if not os.path.exists(html_file):
                         with open(html_file, 'w') as f:
                             f.write(generate_image_tag(
-                                generate_data_uri(open(file_name))
+                                generate_data_uri(open(file_name)),
+                                wrap=66 # hard wrap at a sensible length
                             ))
 
 if __name__ == "__main__":

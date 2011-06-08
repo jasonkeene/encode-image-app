@@ -31,13 +31,27 @@ Other Platforms
 3. The generated HTML file will be placed in the same directory as the
    image with the same name as the image.
 
+Command Line
+------------
+
+If you'd prefer to just generate a batch of data URIs from a set of files
+(images or not) then use generate_data_uri.py.  It will dump \n delimited
+URIs to stdout.
+
+For instance if you'd like to encode all PNG images on your Desktop and
+output the result to Textmate::
+
+    ./generate_data_uri.py ~/Desktop/*.png | mate
+
+You can also encode text files using URL encoding and not base64::
+
+    ./generate_data_uri.py -t ~/Desktop/*.txt | mate
+
 Troubleshooting
 ===============
 
 If nothing happens when you run EncodeImage.app ensure you have the execute
-permission bit set.
-
-::
+permission bit set. ::
 
     chmod 755 EncodeImage.app/Contents/MacOS/EncodeImage # OSX
     chmod 755 encode_image.py # Other Platforms
